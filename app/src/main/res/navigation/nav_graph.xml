@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/baseFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/baseFragment"
-        android:name="io.nguyenhuynhdev.architecture.app.presentation.base.BaseFragment"
-        android:label="BaseFragment" />
+        android:id="@+id/homeFragment"
+        android:name="io.nguyenhuynhdev.architecture.app.presentation.home.HomeFragment"
+        android:label="HomeFragment" />
 </navigation>

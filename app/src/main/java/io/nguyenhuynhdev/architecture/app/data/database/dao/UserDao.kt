@@ -4,12 +4,13 @@ import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import io.nguyenhuynhdev.architecture.app.data.database.entity.User
+import io.nguyenhuynhdev.architecture.app.domain.models.User
+import io.reactivex.rxjava3.core.Flowable
 
 @Dao
 interface UserDao {
     @Query("SELECT * FROM user")
-    fun getAll(): List<User>
+    fun getUsers(): Flowable<List<User>>
 
     @Query("SELECT * FROM user WHERE uid IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<User>

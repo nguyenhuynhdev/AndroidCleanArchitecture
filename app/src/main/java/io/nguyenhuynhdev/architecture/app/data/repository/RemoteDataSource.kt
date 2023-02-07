@@ -1,4 +1,13 @@
 package io.nguyenhuynhdev.architecture.app.data.repository
 
-class RemoteDataSource {
+import io.nguyenhuynhdev.architecture.app.data.network.ApiService
+import io.nguyenhuynhdev.architecture.app.domain.models.User
+import io.reactivex.rxjava3.core.Single
+import javax.inject.Inject
+
+class RemoteDataSource @Inject constructor(private val apiService: ApiService) {
+
+    fun getUsers(): Single<List<User>> {
+        return apiService.getUsers()
+    }
 }

@@ -9,6 +9,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.nguyenhuynhdev.architecture.app.data.database.AppDatabase
 import io.nguyenhuynhdev.architecture.app.data.database.dao.UserDao
+import io.nguyenhuynhdev.architecture.app.data.repository.RepositoryIml
+import io.nguyenhuynhdev.architecture.app.domain.repository.Repository
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -29,4 +31,10 @@ object DatabaseModule {
             "Architecture.db"
         ).build()
     }
+
+//    @Provides
+//    fun provideRepository(): Repository{
+//        return RepositoryIml()
+//    }
+
 }
