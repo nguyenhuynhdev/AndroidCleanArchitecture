@@ -43,3 +43,7 @@ kapt {
 }
 
 apply from: "dependencies.gradle"
+
+dependencies {
+    implementation 'androidx.core:core-ktx:+'
+}

@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadPoolExecutor
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class JobExecutor @Inject
+class ThreadExecutorIml @Inject
 internal constructor() : ThreadExecutor {
     private val threadPoolExecutor: ThreadPoolExecutor
 

@@ -5,17 +5,17 @@ import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.FragmentComponent
 import io.nguyenhuynhdev.architecture.app.data.repository.RepositoryIml
-import io.nguyenhuynhdev.architecture.app.domain.executor.JobExecutor
+import io.nguyenhuynhdev.architecture.app.domain.executor.ThreadExecutorIml
 import io.nguyenhuynhdev.architecture.app.domain.executor.ThreadExecutor
 import io.nguyenhuynhdev.architecture.app.domain.repository.Repository
 
 @Module
 @InstallIn(FragmentComponent::class)
-abstract class RepositoryModule {
+abstract class FragmentModule {
 
     @Binds
     abstract fun bindRepository(repository: RepositoryIml): Repository
 
     @Binds
-    abstract fun bindThreadExecutor(jobExecutor: JobExecutor): ThreadExecutor
+    abstract fun bindThreadExecutor(jobExecutor: ThreadExecutorIml): ThreadExecutor
 }
