@@ -1,11 +1,11 @@
 package io.nguyenhuynhdev.architecture.app.data.network
 
 import io.nguyenhuynhdev.architecture.app.domain.models.User
-import io.reactivex.rxjava3.core.Single
-import javax.inject.Inject
+import io.reactivex.rxjava3.core.Observable
+import retrofit2.http.GET
 
-class ApiService @Inject constructor() {
-    fun getUsers(): Single<List<User>> {
-        return Single.create { t -> t.onSuccess(arrayListOf(User(803960433, "Nguyen", "Huynh"))) }
-    }
+interface ApiService {
+
+    @GET("users.json")
+    fun getUsers(): Observable<List<User>>
 }

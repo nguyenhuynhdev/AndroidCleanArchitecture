@@ -22,7 +22,13 @@ android {
     }
 
     buildTypes {
+        debug {
+            //dev
+            buildConfigField "String", "BASE_URL", "\"https://raw.githubusercontent.com/nguyenhuynhdev/AndroidCleanArchitecture/master/\""
+        }
+
         release {
+            buildConfigField "String", "BASE_URL", "\"https://raw.githubusercontent.com/nguyenhuynhdev/AndroidCleanArchitecture/master/\""
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
@@ -43,7 +49,3 @@ kapt {
 }
 
 apply from: "dependencies.gradle"
-
-dependencies {
-    implementation 'androidx.core:core-ktx:+'
-}
