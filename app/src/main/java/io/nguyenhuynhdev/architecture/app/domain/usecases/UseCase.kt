@@ -1,5 +1,6 @@
 package io.nguyenhuynhdev.architecture.app.domain.usecases
 
+import dagger.hilt.android.scopes.ViewModelScoped
 import io.nguyenhuynhdev.architecture.app.domain.executor.ThreadExecutor
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Observable
@@ -7,9 +8,7 @@ import io.reactivex.rxjava3.disposables.CompositeDisposable
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.observers.DisposableObserver
 import io.reactivex.rxjava3.schedulers.Schedulers
-import javax.inject.Singleton
 
-@Singleton
 abstract class UseCase<T : Any, in Params>  internal constructor(private val threadExecutor: ThreadExecutor) {
     private val disposables: CompositeDisposable = CompositeDisposable()
 

@@ -2,6 +2,7 @@ package io.nguyenhuynhdev.architecture.app.di
 
 import android.content.Context
 import androidx.room.Room
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,6 +12,9 @@ import io.nguyenhuynhdev.architecture.BuildConfig
 import io.nguyenhuynhdev.architecture.app.data.database.AppDatabase
 import io.nguyenhuynhdev.architecture.app.data.database.dao.UserDao
 import io.nguyenhuynhdev.architecture.app.data.network.ApiService
+import io.nguyenhuynhdev.architecture.app.data.network.OpenAIService
+import io.nguyenhuynhdev.architecture.app.domain.executor.ThreadExecutor
+import io.nguyenhuynhdev.architecture.app.domain.executor.ThreadExecutorIml
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -19,9 +23,9 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
-@InstallIn(SingletonComponent::class)
 @Module
-object ApplicationModule {
+@InstallIn(SingletonComponent::class)
+object AppProvidesModule {
 
     @Provides
     @Singleton
@@ -44,21 +48,27 @@ object ApplicationModule {
         return builder.build()
     }
 
+
     @Provides
     @Singleton
-    fun providerRetrofit(client: OkHttpClient): Retrofit {
+    fun providerApiService(client: OkHttpClient): ApiService {
         return Retrofit.Builder()
             .baseUrl(BuildConfig.BASE_URL)
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
-            .build()
+            .build().create(ApiService::class.java)
     }
 
     @Provides
     @Singleton
-    fun providerApiService(retrofit: Retrofit) : ApiService {
-        return retrofit.create(ApiService::class.java)
+    fun providerOpenAIService(client: OkHttpClient): OpenAIService {
+        return Retrofit.Builder()
+            .baseUrl(BuildConfig.OPENAI_URL)
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build().create(OpenAIService::class.java)
     }
 
     //Database
@@ -74,4 +84,7 @@ object ApplicationModule {
             appContext, AppDatabase::class.java, "Architecture.db"
         ).build()
     }
+
 }
+
+

@@ -13,9 +13,5 @@ import io.nguyenhuynhdev.architecture.app.domain.repository.Repository
 @InstallIn(FragmentComponent::class)
 abstract class FragmentModule {
 
-    @Binds
-    abstract fun bindRepository(repository: RepositoryIml): Repository
 
-    @Binds
-    abstract fun bindThreadExecutor(jobExecutor: ThreadExecutorIml): ThreadExecutor
 }

@@ -6,4 +6,6 @@ import io.reactivex.rxjava3.core.Observable
 interface Repository {
 
     fun getUsers(): Observable<List<User>>
+
+    fun chatGpt(prompt: String): Observable<String>
 }

@@ -1,4 +1,5 @@
 package io.nguyenhuynhdev.architecture.app.presentation.base
 
-class BaseViewModel {
-}
+import androidx.lifecycle.ViewModel
+
+open class BaseViewModel: ViewModel()
