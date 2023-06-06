@@ -39,10 +39,8 @@ class RepositoryIml @Inject constructor(
                                     .subscribeOn(Schedulers.from(threadExecutor))
                                     .observeOn(AndroidSchedulers.mainThread())
                                     .unsubscribeOn(Schedulers.io())
-                                    .doOnComplete {
-                                        e.onNext(response)
-                                        Log.i("Repository", "Inserted users")
-                                    }
+                                    .doOnSubscribe { e.onNext(response) }
+                                    .doOnComplete { e.onComplete() }
                                     .doOnError { e.onError(it) }
                                     .doFinally { disposable.clear() }
                                     .subscribe()
@@ -55,7 +53,8 @@ class RepositoryIml @Inject constructor(
                         e.onNext(users)
                     }
                 }
-                .doOnError { e.onError(it) }.doOnComplete { e.onComplete() }
+                .doOnError { e.onError(it) }
+                .doOnComplete { e.onComplete() }
                 .doFinally { disposable.clear() }
                 .subscribe()
             )

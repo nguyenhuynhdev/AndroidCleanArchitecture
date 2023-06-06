@@ -81,7 +81,7 @@ object AppProvidesModule {
     @Singleton
     fun provideDatabase(@ApplicationContext appContext: Context): AppDatabase {
         return Room.databaseBuilder(
-            appContext, AppDatabase::class.java, "Architecture.db"
+            appContext, AppDatabase::class.java, BuildConfig.DB_NAME
         ).build()
     }
 

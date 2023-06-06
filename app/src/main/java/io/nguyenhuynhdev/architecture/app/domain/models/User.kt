@@ -8,7 +8,7 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-@Entity
+@Entity(tableName = "user")
 data class User(
     @SerializedName("uid")
     @PrimaryKey val uid: Int,

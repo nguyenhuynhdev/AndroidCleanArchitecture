@@ -13,9 +13,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidCleanArchitecture"
+        android:theme="@style/Theme.App.Starting"
         tools:targetApi="31">
         <activity
+            android:theme="@style/Theme.App.Starting"
             android:name=".app.presentation.home.HomeActivity"
             android:exported="true">
             <intent-filter>
@@ -24,6 +25,24 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="com.google.mlkit.vision.DEPENDENCIES"
+            android:value="ocr,barcode,face" />
+        <provider
+            android:name=".providers.UserContentProvider"
+            android:authorities="${applicationId}.providers.UserContentProvider"
+            android:exported="false" />
+        <provider
+            android:name=".providers.UserContentProvider"
+            android:authorities="io.nguyenhuynhdev.architecture.providers.UserContentProvider"
+            android:grantUriPermissions="true"
+            android:exported="true"
+            android:permission="android.permission.MANAGE_DOCUMENTS">
+            <intent-filter>
+                <action android:name="android.content.action.DOCUMENTS_PROVIDER" />
+            </intent-filter>
+        </provider>
     </application>
 
 </manifest>

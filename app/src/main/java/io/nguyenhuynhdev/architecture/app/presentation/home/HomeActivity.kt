@@ -1,7 +1,7 @@
 package io.nguyenhuynhdev.architecture.app.presentation.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.databinding.DataBindingUtil
 import dagger.hilt.android.AndroidEntryPoint
 import io.nguyenhuynhdev.architecture.R
@@ -13,6 +13,7 @@ class HomeActivity : BaseActivity() {
 
     private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
+        installSplashScreen()
         super.onCreate(savedInstanceState)
         binding= DataBindingUtil.setContentView(this, R.layout.activity_home)
     }

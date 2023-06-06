@@ -1,5 +1,6 @@
 package io.nguyenhuynhdev.architecture.app.data.database.dao
 
+import android.database.Cursor
 import androidx.room.*
 import io.nguyenhuynhdev.architecture.app.domain.models.User
 import io.reactivex.rxjava3.core.Completable
@@ -10,6 +11,12 @@ import io.reactivex.rxjava3.core.Maybe
 interface UserDao {
     @Query("SELECT * FROM user")
     fun getUsers(): Flowable<List<User>>
+
+    @Query("SELECT * FROM user")
+    fun getUsersCursor(): Cursor
+
+    @Query("SELECT 1 FROM user WHERE uid IN (:userIds)")
+    fun getUsersCursorById(userIds: Int): Cursor
 
     @Query("SELECT * FROM user WHERE uid IN (:userIds)")
     fun loadAllByIds(userIds: IntArray): List<User>
@@ -23,6 +30,12 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertAll(vararg users: User): Completable
 
+    @Update
+    fun updateUser(user: User): Completable
+
     @Delete
     fun delete(user: User)
+
+    @Query("DELETE FROM user WHERE uid IN (:userIds)")
+    fun deleteByUid(userIds: Int)
 }

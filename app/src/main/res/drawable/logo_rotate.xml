@@ -1,0 +1,132 @@
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt">
+    <aapt:attr name="android:drawable">
+        <vector
+            android:name="vector"
+            android:width="512dp"
+            android:height="512dp"
+            android:viewportWidth="512"
+            android:viewportHeight="512">
+            <group android:name="animate">
+                <path
+                    android:name="loading"
+                    android:pathData="M 306 456 L 231 456 L 231 306 L 306 306 L 306 56 L 456 56 L 456 456 L 306 456 Z M 206 456 L 56 456 L 56 56 L 281 56 L 281 206 L 206 206 L 206 456 Z"
+                    android:fillColor="#ffffff"
+                    android:strokeWidth="1"
+                    android:fillType="evenOdd"/>
+            </group>
+        </vector>
+    </aapt:attr>
+    <target android:name="animate">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="rotation"
+                    android:startOffset="250"
+                    android:duration="500"
+                    android:valueFrom="180"
+                    android:valueTo="360"
+                    android:valueType="floatType"
+                    android:interpolator="@android:interpolator/fast_out_slow_in"/>
+                <objectAnimator
+                    android:propertyName="pivotX"
+                    android:duration="1000"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pivotY"
+                    android:duration="1000"
+                    android:valueFrom="256"
+                    android:valueTo="256"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:duration="250"
+                    android:valueFrom="0.5"
+                    android:valueTo="0.5"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:duration="250"
+                    android:valueFrom="0.5"
+                    android:valueTo="0.5"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:startOffset="650"
+                    android:duration="100"
+                    android:valueFrom="0.3"
+                    android:valueTo="0.5"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:startOffset="650"
+                    android:duration="100"
+                    android:valueFrom="0.3"
+                    android:valueTo="0.5"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:startOffset="750"
+                    android:duration="250"
+                    android:valueFrom="0.5"
+                    android:valueTo="0.5"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:startOffset="750"
+                    android:duration="250"
+                    android:valueFrom="0.5"
+                    android:valueTo="0.5"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleX"
+                    android:startOffset="250"
+                    android:duration="100"
+                    android:valueFrom="0.5"
+                    android:valueTo="0.3"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="scaleY"
+                    android:startOffset="250"
+                    android:duration="100"
+                    android:valueFrom="0.5"
+                    android:valueTo="0.3"
+                    android:valueType="floatType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+    <target android:name="loading">
+        <aapt:attr name="android:animation">
+            <set>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:startOffset="750"
+                    android:duration="250"
+                    android:valueFrom="M 306 456 L 268.5 456 L 231 456 L 231 306 L 306 306 L 306 56 L 456 56 L 456 456 L 306 456 Z M 206 456 L 56 456 L 56 56 L 281 56 L 281 206 L 206 206 L 206 456 Z"
+                    android:valueTo="M 306 456 L 306 381 L 226 381 L 226 231 L 306 231 L 306 56 L 456 56 L 456 456 L 306 456 Z M 206 456 L 56 456 L 56 56 L 206 56 L 281.312 206.031 L 206 206.031 L 206 456 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+                <objectAnimator
+                    android:propertyName="pathData"
+                    android:duration="250"
+                    android:valueFrom="M 306 456 L 306 381 L 226 381 L 226 231 L 306 231 L 306 56 L 456 56 L 456 456 L 306 456 Z M 206 456 L 56 456 L 56 56 L 206 56 L 281.312 206.031 L 206 206.031 L 206 456 Z"
+                    android:valueTo="M 306 456 L 268.5 456 L 231 456 L 231 306 L 306 306 L 306 56 L 456 56 L 456 456 L 306 456 Z M 206 456 L 56 456 L 56 56 L 281 56 L 281 206 L 206 206 L 206 456 Z"
+                    android:valueType="pathType"
+                    android:interpolator="@android:anim/accelerate_decelerate_interpolator"/>
+            </set>
+        </aapt:attr>
+    </target>
+</animated-vector>

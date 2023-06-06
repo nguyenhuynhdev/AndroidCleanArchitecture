@@ -35,7 +35,7 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         homeViewModel.getUsers().execute(GetUsersObserver(), null)
-        homeViewModel.chatGpt("Xin chào")
+//        homeViewModel.chatGpt("Xin chào")
 
     }
 
